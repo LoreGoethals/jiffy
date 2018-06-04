@@ -45,7 +45,7 @@ this.setState({
   loading: true
 });
 try{
-    const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=dzLaPYomyP2iv8L6uluR9ZDfCpGHYeu1&q=${searchTerm}&limit=25&offset=0&rating=G&lang=en'
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=dzLaPYomyP2iv8L6uluR9ZDfCpGHYeu1&q=${searchTerm}&limit=25&offset=0&rating=G&lang=en`
     );
 const {data} = await response.json()
 
@@ -108,9 +108,8 @@ clearSearch = () => {
     const hasResults = gifs.length;
     return (
       <div className="page">
-        <Header />
 
-        <Header clearSearch={this.clearSearch} />
+         <Header clearSearch={this.clearSearch} hasResults={hasResults} />
 
         <div className='search grid'>
         {}
